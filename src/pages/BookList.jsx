@@ -15,7 +15,7 @@ function BookList() {
   const fetchBooks = () => {
     setLoading(true);
     axios
-      .get("http://localhost:3000/api/books")
+      .get("https://examendesarrollofinal.onrender.com/api/books")
       .then((response) => {
         setBooks(response.data);
         setLoading(false);
@@ -29,7 +29,7 @@ function BookList() {
   // Obtener géneros
   const fetchGenres = () => {
     axios
-      .get("http://localhost:3000/api/genres")
+      .get("https://examendesarrollofinal.onrender.com/api/genres")
       .then((response) => {
         setGenres(response.data);
       })
@@ -69,7 +69,7 @@ function BookList() {
   // Eliminar libro
   const deleteBook = (id) => {
     axios
-      .delete(`http://localhost:3000/api/books/${id}`)
+      .delete(`https://examendesarrollofinal.onrender.com/api/books/${id}`)
       .then(() => {
         setBooks(books.filter((book) => book.id !== id));
       })
@@ -81,7 +81,7 @@ function BookList() {
   // Actualizar libro
   const updateBook = (book) => {
     axios
-      .put(`http://localhost:3000/api/books/${book.id}`, book)
+      .put(`https://examendesarrollofinal.onrender.com/api/books/${book.id}`, book)
       .then(() => {
         setEditingBook(null);
         setIsModalOpen(false); // Cerrar el modal

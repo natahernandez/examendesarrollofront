@@ -10,7 +10,7 @@ function CreateBook() {
   const [message, setMessage] = useState('');
 
   useEffect(() => {
-    axios.get('http://localhost:3000/api/genres')
+    axios.get('https://examendesarrollofinal.onrender.com/api/genres')
       .then(response => {
         setGenres(response.data); 
       })
@@ -31,7 +31,7 @@ function CreateBook() {
     };
 
     try {
-      const response = await axios.post('http://localhost:3000/api/books', newBook, {
+      const response = await axios.post('https://examendesarrollofinal.onrender.com/api/books', newBook, {
         headers: {
           'Content-Type': 'application/json',
         },

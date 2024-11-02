@@ -19,12 +19,12 @@ function BookDetail() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/api/books/${id}`)
+      .get(`https://examendesarrollofinal.onrender.com/api/books/${id}`)
       .then((response) => setBook(response.data))
       .catch((error) => console.error("Error al obtener el libro:", error));
 
     axios
-      .get(`http://localhost:3000/api/copies/book/${id}`)
+      .get(`https://examendesarrollofinal.onrender.com/api/copies/${id}`)
       .then((response) => setCopies(response.data))
       .catch((error) => console.error("Error al obtener las copias:", error))
       .finally(() => setLoading(false));
@@ -32,8 +32,8 @@ function BookDetail() {
 
   const handleCreateOrUpdateCopy = () => {
     const apiEndpoint = isEditing
-      ? `http://localhost:3000/api/copies/${selectedCopy.id}`
-      : "http://localhost:3000/api/copies";
+      ? `https://examendesarrollofinal.onrender.com/api/copies/${selectedCopy.id}`
+      : "https://examendesarrollofinal.onrender.com/api/copies"; 
 
     const request = isEditing
       ? axios.put(apiEndpoint, { ...newCopy, bookId: id })
@@ -86,7 +86,7 @@ function BookDetail() {
 
   const handleDeleteCopy = (copyId) => {
     axios
-      .delete(`http://localhost:3000/api/copies/${copyId}`)
+      .delete(`https://examendesarrollofinal.onrender.com/api/copies/${copyId}`)
       .then(() => {
         setCopies(copies.filter((copy) => copy.id !== copyId));
         Swal.fire("Eliminado", "La copia ha sido eliminada.", "success");

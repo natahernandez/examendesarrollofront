@@ -14,7 +14,7 @@ function GenreList() {
   }, []);
 
   const fetchGenres = () => {
-    axios.get('http://localhost:3000/api/genres')
+    axios.get('https://examendesarrollofinal.onrender.com/api/genres')
       .then(response => {
         setGenres(response.data);
         setLoading(false);
@@ -27,7 +27,7 @@ function GenreList() {
 
   const handleCreateGenre = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:3000/api/genres', newGenre)
+    axios.post('https://examendesarrollofinal.onrender.com/api/genres', newGenre)
       .then(response => {
         setGenres([...genres, response.data]);
         setNewGenre({ name: '', description: '' });
@@ -43,7 +43,7 @@ function GenreList() {
     e.preventDefault();
     if (!editingGenre) return;
 
-    axios.put(`http://localhost:3000/api/genres/${editingGenre.id}`, editingGenre)
+    axios.put(`https://examendesarrollofinal.onrender.com/api/genres/${editingGenre.id}`, editingGenre)
       .then(() => {
         setGenres(genres.map(genre => genre.id === editingGenre.id ? editingGenre : genre));
         setEditingGenre(null);
@@ -74,7 +74,7 @@ function GenreList() {
   };
 
   const deleteGenre = (id) => {
-    axios.delete(`http://localhost:3000/api/genres/${id}`)
+    axios.delete(`https://examendesarrollofinal.onrender.com/api/genres/${id}`)
       .then(() => {
         setGenres(genres.filter(genre => genre.id !== id));
       })
